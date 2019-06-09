@@ -1,2 +1,5 @@
 venv/*
 .idea/*
+*.json
+*.json.gz
+__pycache__
