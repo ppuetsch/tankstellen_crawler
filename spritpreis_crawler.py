@@ -1,3 +1,8 @@
+"""
+Ermittelt die 1-Wochen Historie der Spritpreise (E5, E10 und Diesel) für
+gegebene Detailseiten zu Tankstellen auf mehr-tanken.de
+"""
+
 import requests_html
 import urllib.parse
 import json
@@ -7,6 +12,8 @@ import time
 
 def get_data_for_tankstellen_link(
         link="https://mehr-tanken.de/tankstelle/dbc87db1/shell-karl-krekeler-str-2-51373-leverkusen"):
+    """Ermittelt die 1 Wochen Historie, sowie Tankstellen Details, für eine konkrete Tankstelle die als URL
+    zur Detailseite der Tankstelle von mehr-tanken.de übergeben wird. Ergebnis wird als dictionary zurückgegeben"""
     print("Crawling Tankdaten für Link {}".format(link))
     result = {}
     history = {}
@@ -32,10 +39,12 @@ def get_data_for_tankstellen_link(
         result['history'] = "No history data found"
     return link, result
 
+
 def get_data_for_tankstellen_set(
         links=None,
         max_concurrent_requests=8):
-    if links==None:
+    """Funktionalität wie get_data_for_tankstellen_link, aber es wird ein set von Detailseiten-URLs erwartet"""
+    if links is None:
         links = {"https://mehr-tanken.de/tankstelle/dbc87db1/shell-karl-krekeler-str-2-51373-leverkusen"}
     print("Crawling {} Tankstellen nach Daten".format(len(links)))
     return {link: data for (link, data) in
