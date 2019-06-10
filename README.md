@@ -1,1 +1,2 @@
 # tankstellen_crawler
+Dieses Python Projekt soll dazu dienen, eine Zeitreihe von Tankstellen-Preisen aufbauen zu können. Dazu werden die Preise von mehr-tanken.de abgerufen - hier ist freundlicherweise eine 1-Wochen-Historie für E5, E10 und Diesel vorhanden, man muss also nicht ständig crawlen, eigentlich reicht es einmal wöchentlich.
