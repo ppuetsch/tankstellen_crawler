@@ -39,7 +39,7 @@ def save_data(station_data_filename, spritpreis_daten):
         if link in old_station_data:
             max_available_ts = max(old_station_data[link].keys())
             if old_station_data[link][max_available_ts] != list(station_detail.values())[0]:
-                old_station_data[link][list(station_detail.keys())[0]] = station_detail.values()[0]
+                old_station_data[link][list(station_detail.keys())[0]] = list(station_detail.values())[0]
                 modified += 1
         else:
             old_station_data[link] = station_detail
