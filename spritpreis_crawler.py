@@ -26,6 +26,7 @@ def get_data_for_tankstellen_link(
         print("Could not load data from URL {}. Passing silently", link)
     try:
         result['station_data'] = json.loads(r.html.find("chart", first=True).attrs["station-data"])
+        del result['station_data']['prices']
     except:
         result['station_data'] = "station_data not found"
     try:
